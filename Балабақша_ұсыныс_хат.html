@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Балабақша Ұсыныс Хат | Коммерческое Предложение</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Nunito:wght@400;600;700;800&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun: #FFB703;
+    --sky: #219EBC;
+    --leaf: #2DC653;
+    --coral: #FF6B6B;
+    --dark: #1A1A2E;
+    --soft: #F8F7F2;
+    --card-bg: #FFFFFF;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--soft);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+
+  /* LANGUAGE TABS */
+  .lang-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    background: var(--dark);
+    border-bottom: 3px solid var(--sun);
+  }
+
+  .lang-btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+  }
+
+  .lang-btn.active {
+    color: var(--sun);
+    background: rgba(255,183,3,0.08);
+    border-bottom: 3px solid var(--sun);
+  }
+
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    padding: 70px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,183,3,0.15), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(33,158,188,0.12), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,183,3,0.15);
+    border: 1px solid rgba(255,183,3,0.4);
+    color: var(--sun);
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 span { color: var(--sun); }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin: 0 auto 36px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+
+  .btn-wa {
+    background: #25D366;
+    color: #fff;
+  }
+
+  .btn-ig {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #fff;
+  }
+
+  .btn-wa:hover, .btn-ig:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+  /* CONTAINER */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* SECTION */
+  .section { padding: 60px 20px; }
+  .section-alt { background: #fff; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .section-title span { color: var(--sky); }
+
+  .section-line {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sun), var(--coral));
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+
+  /* PROBLEMS GRID */
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .problem-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .problem-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-color: var(--sun);
+  }
+
+  .problem-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .ic-sun { background: rgba(255,183,3,0.12); }
+  .ic-sky { background: rgba(33,158,188,0.12); }
+  .ic-leaf { background: rgba(45,198,83,0.12); }
+  .ic-coral { background: rgba(255,107,107,0.12); }
+
+  .problem-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+  .problem-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* WEBSITE FEATURES */
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 12px;
+    border-left: 4px solid var(--sky);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .feature-item .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--sky);
+    flex-shrink: 0;
+  }
+
+  /* BEST SITES */
+  .sites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .site-card {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 22px;
+    color: #fff;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .site-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+
+  .site-flag { font-size: 24px; margin-bottom: 10px; }
+  .site-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .site-card p { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 12px; line-height: 1.5; }
+
+  .site-link {
+    display: inline-block;
+    color: var(--sun);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,183,3,0.4);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .site-link:hover { color: #fff; }
+
+  /* PACKAGES */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  .package-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .package-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.18); }
+
+  .package-card.featured {
+    box-shadow: 0 8px 40px rgba(255,183,3,0.3);
+    transform: scale(1.02);
+  }
+
+  .package-card.featured:hover { transform: scale(1.02) translateY(-6px); }
+
+  .package-header {
+    padding: 28px 24px 20px;
+    text-align: center;
+  }
+
+  .pkg1 .package-header { background: linear-gradient(135deg, #219EBC, #023047); }
+  .pkg2 .package-header { background: linear-gradient(135deg, #FFB703, #FB8500); }
+  .pkg3 .package-header { background: linear-gradient(135deg, #2DC653, #007F5F); }
+
+  .pkg-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+  }
+
+  .package-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .pkg-price {
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .pkg-price small { font-size: 16px; font-weight: 400; opacity: 0.8; }
+
+  .package-body {
+    background: #fff;
+    padding: 24px;
+  }
+
+  .pkg-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .pkg-item:last-child { border-bottom: none; }
+
+  .pkg-check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #fff;
+    margin-top: 2px;
+  }
+
+  .pkg1 .pkg-check { background: var(--sky); }
+  .pkg2 .pkg-check { background: var(--sun); }
+  .pkg3 .pkg-check { background: var(--leaf); }
+
+  .best-badge {
+    position: absolute;
+    top: -1px; right: 20px;
+    background: var(--coral);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 14px 8px;
+    border-radius: 0 0 12px 12px;
+    letter-spacing: 1px;
+  }
+
+  /* CONDITIONS */
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .cond-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-top: 4px solid transparent;
+    transition: all 0.3s;
+  }
+
+  .cond-card:hover { transform: translateY(-3px); }
+  .cond-c1 { border-top-color: var(--sky); }
+  .cond-c2 { border-top-color: var(--sun); }
+  .cond-c3 { border-top-color: var(--leaf); }
+  .cond-c4 { border-top-color: var(--coral); }
+
+  .cond-icon { font-size: 32px; margin-bottom: 10px; }
+  .cond-card h4 { font-size: 13px; font-weight: 800; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .cond-card p { font-size: 13px; color: var(--muted); }
+
+  /* PORTFOLIO */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .port-card {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 24px;
+    color: #fff;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: all 0.3s;
+  }
+
+  .port-card:hover { border-color: var(--sun); transform: translateY(-3px); }
+  .port-card h4 { font-size: 15px; margin-bottom: 8px; }
+  .port-card p { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+
+  .port-link {
+    display: inline-block;
+    background: var(--sun);
+    color: var(--dark);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .port-link:hover { background: #fff; }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, #1A1A2E, #0F3460);
+    padding: 70px 20px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 42px);
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .cta-section h2 span { color: var(--sun); }
+  .cta-section p { color: rgba(255,255,255,0.65); margin-bottom: 32px; font-size: 15px; }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-primary { background: var(--sun); color: var(--dark); }
+  .cta-secondary { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
+
+  /* DIVIDER */
+  .lang-divider {
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--sun) 0, var(--sun) 33.3%, #fff 33.3%, #fff 66.6%, #00AFCA 66.6%, #00AFCA 100%);
+  }
+
+  /* MARKET PRICE */
+  .market-box {
+    background: linear-gradient(135deg, rgba(255,183,3,0.08), rgba(33,158,188,0.08));
+    border: 1px solid rgba(255,183,3,0.3);
+    border-radius: 16px;
+    padding: 28px;
+    margin: 24px 0;
+  }
+
+  .market-box h4 { font-size: 17px; font-weight: 800; margin-bottom: 14px; }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+    font-size: 14px;
+  }
+
+  .price-row:last-child { border-bottom: none; }
+  .price-label { color: var(--muted); }
+  .price-val { font-weight: 800; }
+  .price-ours { color: var(--leaf); font-size: 18px; }
+  .price-market { color: var(--coral); text-decoration: line-through; font-size: 13px; }
+
+  /* INFO BOX */
+  .info-box {
+    background: rgba(33,158,188,0.06);
+    border-left: 4px solid var(--sky);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--dark);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .packages-grid { grid-template-columns: 1fr; }
+    .package-card.featured { transform: none; }
+    .hero { padding: 50px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE TABS -->
+<div class="lang-tabs">
+  <button class="lang-btn active" onclick="switchLang('kz')">🇰🇿 ҚАЗАҚША</button>
+  <button class="lang-btn" onclick="switchLang('ru')">🇷🇺 РУССКИЙ</button>
+</div>
+
+<!-- ===================== KAZAKH VERSION ===================== -->
+<div id="lang-kz" class="lang-section active">
+
+  <div class="hero">
+    <div class="hero-badge">Коммерциялық Ұсыныс Хат · 2026</div>
+    <h1>Жеке меншік <span>балабақшаңызға</span> — әлемдік деңгейдегі сайт</h1>
+    <p class="hero-sub">Ай сайынғы төлемсіз. Бір рет инвестиция — жылдар бойы нәтиже. Ата-аналар сенетін, балалар іздейтін ресми бет.</p>
+    <div class="hero-contact">
+      <a href="https://wa.me/77086279544" class="hero-contact btn-wa">📱 +7 708 627 9544</a>
+      <a href="https://instagram.com/subhankul_minayhan" class="hero-contact btn-ig">📸 @subhankul_minayhan</a>
+    </div>
+  </div>
+
+  <!-- PROBLEMS -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Сайтсыз балабақша <span>қандай мәселелерге</span> тап болады?</div>
+      <div class="section-line"></div>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon ic-coral">😟</div>
+          <div>
+            <h4>Сенімсіздік</h4>
+            <p>Ата-аналар Google-дан іздейді. Сайты жоқ балабақша — «жасырын» немесе «дайын емес» сияқты көрінеді.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sun">📞</div>
+          <div>
+            <h4>Телефонға жабысу</h4>
+            <p>Бос орын бар ма? Бағасы қанша? Сағат нешеде жұмыс істейді? — Осының бәрін сайт 24/7 жауап береді.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sky">📉</div>
+          <div>
+            <h4>Бәсекеде артта қалу</h4>
+            <p>Сайты бар балабақша — кәсіби, беделді. Жоқ балабақша — артта. Таңдау ата-аналар үшін анық.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-leaf">📝</div>
+          <div>
+            <h4>Өтінішті қолмен алу</h4>
+            <p>Онлайн форм жоқ — лист ұстап тұрасыз. Автоматты жүйе уақытыңызды үнемдейді.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-coral">🌐</div>
+          <div>
+            <h4>Жарнама ысырапы</h4>
+            <p>Инстаграм жарнамасы сайтсыз жоғалып кетеді. Сайт — жарнама нәтижесін 3 есе арттырады.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sun">⭐</div>
+          <div>
+            <h4>Отзывтарды көрсете алмау</h4>
+            <p>Жақсы отзыв бар — бірақ жинайтын орын жоқ. Сайт оны кәсіби түрде ұсынады.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sky">📋</div>
+          <div>
+            <h4>Құжаттарды жіберу</h4>
+            <p>Лицензия, бағдарлама, ереже — бәрін WhatsApp-пен жібереді. Сайтта PDF-пен орналастыра береді.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-leaf">🗺️</div>
+          <div>
+            <h4>Адресті табу қиын</h4>
+            <p>«Сол жақ бұрышта» деп түсіндіру — кешегі күн. Google карта интеграциясы жол жеңілдетеді.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE SECTIONS -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Сайт <span>не болады</span>?</div>
+      <div class="section-line"></div>
+      <div class="features-list">
+        <div class="feature-item"><span class="dot"></span>Онлайн өтініш қалдыру формасы</div>
+        <div class="feature-item"><span class="dot"></span>Google карта + адрес, жол сілтемесі</div>
+        <div class="feature-item"><span class="dot"></span>Отзывтар бөлімі (скриншот, мәтін, жұлдыз)</div>
+        <div class="feature-item"><span class="dot"></span>Ресми құжаттар (лицензия, жарғы, бағдарлама)</div>
+        <div class="feature-item"><span class="dot"></span>Тәрбиешілер мен мамандар беті</div>
+        <div class="feature-item"><span class="dot"></span>Балабақша өмірі — фото, видео галерея</div>
+        <div class="feature-item"><span class="dot"></span>Балабақшаның құндылықтары беті</div>
+        <div class="feature-item"><span class="dot"></span>Топтар мен бағдарламалар беті</div>
+        <div class="feature-item"><span class="dot"></span>Байланыс беті + WhatsApp түймесі</div>
+        <div class="feature-item"><span class="dot"></span>Мобильді теліфонға бейімделген (responsive)</div>
+        <div class="feature-item"><span class="dot"></span>SEO оптимизациясы (Google-да жоғары шығу)</div>
+        <div class="feature-item"><span class="dot"></span>Жылдам жүктеу (PageSpeed 90+)</div>
+      </div>
+
+      <div class="info-box" style="margin-top:28px">
+        💡 <strong>Маркетинг пайдасы:</strong> Сайт — сіздің ең жақсы сату менеджеріңіз. Ол ешқашан демалмайды, ешқашан науқастанбайды, ешқашан жауап беруді ұмытпайды. Жарнама бюджетінің әрбір теңгесін 3 есе тиімді пайдалануға мүмкіндік береді.
+      </div>
+    </div>
+  </div>
+
+  <!-- BEST SITES -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Дүниежүзілік үздік <span>балабақша сайттары</span></div>
+      <div class="section-line"></div>
+      <p style="margin-bottom:24px; color:var(--muted); font-size:14px">Осы деңгейде жасайтынымызға кепілдік береміз. Төмендегі сайттарды көріп, бізге де соны тапсырыңыз.</p>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-flag">🇦🇺</div>
+          <h4>International Grammar School Sydney</h4>
+          <p>Кәсіби дизайн, видео фон, sticky мәзір, тур броньдау мүмкіндігі.</p>
+          <a href="https://www.igssyd.nsw.edu.au/" class="site-link" target="_blank">igssyd.nsw.edu.au ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇺🇸</div>
+          <h4>NY Kids Club</h4>
+          <p>Жарқын түсті дизайн, бағдарламалар карточкасы, локация іздеу жүйесі.</p>
+          <a href="https://nykidsclub.com/" class="site-link" target="_blank">nykidsclub.com ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇦🇺</div>
+          <h4>Mentone Grammar</h4>
+          <p>Видео background, masonry галерея, кампустар картасы. Толық кәсіби пакет.</p>
+          <a href="https://www.mentonegrammar.net/" class="site-link" target="_blank">mentonegrammar.net ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇬🇧</div>
+          <h4>Monkton School</h4>
+          <p>GSAP анимациясы, континент-аралық transition, соц.желі агрегаторы.</p>
+          <a href="https://www.monkton.org.uk/" class="site-link" target="_blank">monkton.org.uk ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇺🇸</div>
+          <h4>Stepping Stone School</h4>
+          <p>Оқу бағдарламасы, тіркелу қадамдары, кампус ақпараты — барлығы бір жерде.</p>
+          <a href="https://www.steppingstoneschool.com/" class="site-link" target="_blank">steppingstoneschool.com ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇺🇸</div>
+          <h4>Little City Montessori</h4>
+          <p>Заманауи минималистік дизайн, типография өнері, ата-аналарға арналған жетілген UX.</p>
+          <a href="https://www.littlecitymontessori.com/" class="site-link" target="_blank">littlecitymontessori.com ↗</a>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:28px; background:rgba(45,198,83,0.06); border-color:var(--leaf)">
+        ✅ <strong>Біздің уәде:</strong> Жоғарыдағы сайттардың деңгейінде немесе одан да жоғары сапада жасап беруге дайынбыз. Балабақшаңыздың стилі, түсі, ерекшелігі — бәрі ескеріледі. Бұл тек шаблон емес — <strong>толық авторлық код</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- MARKET PRICE -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Нарықтағы <span>баға</span> — vs — Біздің баға</div>
+      <div class="section-line"></div>
+      <div class="market-box">
+        <h4>📊 Қазақстан нарығындағы веб-студиялар бағасы:</h4>
+        <div class="price-row"><span class="price-label">Орташа веб-студия (Алматы/Астана)</span><span class="price-val price-market">350 000 – 800 000 ₸</span></div>
+        <div class="price-row"><span class="price-label">Фрилансер (шаблон негізінде)</span><span class="price-val price-market">120 000 – 250 000 ₸ + ай сайын</span></div>
+        <div class="price-row"><span class="price-label">Wix / Tilda (ай сайын төлем)</span><span class="price-val price-market">15 000 – 40 000 ₸/ай</span></div>
+        <div class="price-row"><span class="price-label" style="font-weight:700;color:var(--dark)">🎯 Біздің пакет (1-пакет — сайт + чат-бот)</span><span class="price-val price-ours">150 000 ₸ — бір рет!</span></div>
+      </div>
+      <div class="info-box">
+        💬 Ай сайын <strong>Wix-ке 20 000 ₸</strong> төлесеңіз — 1 жылда 240 000 ₸. Бізде <strong>бір рет 150 000 ₸</strong> — содан кейін тек хостинг (жылына ~15 000 ₸). <strong>Үнем: жылына 75 000+ ₸</strong>, 3 жылда 300 000+ ₸.
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Таңдаңыз: <span>3 пакет</span></div>
+      <div class="section-line"></div>
+      <div class="packages-grid">
+
+        <!-- Package 1 -->
+        <div class="package-card pkg1">
+          <div class="package-header">
+            <div class="pkg-badge">Пакет 1</div>
+            <h3>Кәсіби Іргетас</h3>
+            <div class="pkg-price">150 000 <small>₸</small></div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:6px">Бір рет · Ай сайын жоқ</div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-item"><span class="pkg-check">✓</span>Авторлық сайт (толық код, шаблон емес)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Онлайн өтініш формасы</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Google карта интеграциясы</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Отзывтар, фото-видео галерея</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Маман, құжат, топтар беттері</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>SEO + мобильді бейімделу</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span><strong>WhatsApp Чат-Бот</strong> — автожауап, 2 тілде</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Домен + хостинг (жылына ~15 000 ₸, клиент алады)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>50% предоплата · 50% дайын болғанда</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Мерзімі: <strong>1 апта</strong></div>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="package-card pkg2 featured">
+          <div class="best-badge">🔥 КӨП ТАҢДАЙДЫ</div>
+          <div class="package-header">
+            <div class="pkg-badge">Пакет 2</div>
+            <h3>Беделді Бренд</h3>
+            <div class="pkg-price">200 000 <small>₸</small></div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:6px">1-пакет + Google беделі</div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-item"><span class="pkg-check">✓</span>1-пакеттің барлығы</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span><strong>2 Google Maps картаға</strong> тіркеу</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span><strong>50 шынайы сапалы отзыв</strong> жазу</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Отзывтарды клиентке жіберу + орналастыру</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Google-да жоғары рейтинг (4.8+ жұлдыз)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Жергілікті іздеуде (Local SEO) бірінші орын</div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="package-card pkg3">
+          <div class="package-header">
+            <div class="pkg-badge">Пакет 3</div>
+            <h3>ИИ Маркетинг Жүйесі</h3>
+            <div class="pkg-price" style="font-size:22px;line-height:1.3">2-пакет + ИИ жүйе</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:6px">Баға жеке келісіледі</div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-item"><span class="pkg-check">✓</span>2-пакеттің барлығы</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span><strong>ИИ Аватар</strong> — балабақша иесінің тірі нұсқасы</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Автоматты контент жүйесі (видео, пост, stories)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>ИИ арқылы баннер, карусель, постар</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Аудио/мәтін тапсырмамен видео шығару</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Тек <strong>айына $20</strong> — мобилограф жалдаудың орнына</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Немесе <strong>айына 70 000 ₸</strong> — барлық контентті біз жасаймыз</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Үнем: <strong>айына 400 000+ ₸</strong> (мобилограф + СММ + копирайтер)</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="info-box" style="margin-top:32px; background:rgba(45,198,83,0.06); border-color:var(--leaf)">
+        🤖 <strong>Неге ИИ Аватар керек?</strong><br><br>
+        📹 <strong>Камераға сөйлей алмасаңыз немесе ұялсаңыз</strong> — аватарыңыз сіздің орныңызда сөйлейді. Өзіңіздің бет-бейнеңіз, дауысыңыз — бірақ камера алдына шықпайсыз.<br><br>
+        🎓 <strong>Білмейтін немесе айта алмайтын нәрселерді</strong> аватарға сөйлетіп кәсібилікті арттырасыз. Сценарийді жазып бересіз — аватар кәсіби диктор сияқты жеткізеді.<br><br>
+        🏢 <strong>Студия жалдамайсыз</strong> — жүздеген мың теңге үнемдейсіз. Студияға баруға уақыт жоқ, түсіруге шаршадыңыз — мұның бәрі артта қалады.<br><br>
+        ⏱️ <strong>15 минутта 20 видео дайын.</strong> Мобилограф монтаждап апталар кетіреді, уақытылы жібермейді. ИИ Аватар қалаған мәтін, сценарий, кез келген сапада — жедел орындайды.<br><br>
+        💰 Мобилограф — айына 200 000 ₸. СММ маман — айына 200 000 ₸. Копирайтер — айына 100 000 ₸. Жылына <strong>6 000 000 ₸</strong> үнемдейсіз.<br><br>
+        🚀 <strong>Бұл мүмкіндікті жіберіп алмаңыз.</strong> ИИ жаңа ғана кіріп жатқан кезде бірінші болып нарықты алу, аз шығынмен алға шығу — бүгін шешілетін мәселе.
+      </div>
+    </div>
+  </div>
+
+  <!-- CONDITIONS -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Ынтымақтастық <span>шарттары</span></div>
+      <div class="section-line"></div>
+      <div class="conditions-grid">
+        <div class="cond-card cond-c1">
+          <div class="cond-icon">⚡</div>
+          <h4>Мерзім</h4>
+          <p>1 апта — сайт + чат-бот дайын</p>
+        </div>
+        <div class="cond-card cond-c2">
+          <div class="cond-icon">💳</div>
+          <h4>Төлем</h4>
+          <p>50% алдын ала · 50% тапсыру кезінде</p>
+        </div>
+        <div class="cond-card cond-c3">
+          <div class="cond-icon">🌐</div>
+          <h4>Домен/Хостинг</h4>
+          <p>Клиент өзі алады (~15 000 ₸/жыл) немесе біз аламыз</p>
+        </div>
+        <div class="cond-card cond-c4">
+          <div class="cond-icon">📄</div>
+          <h4>Келісімшарт</h4>
+          <p>Барлығы ресми келісімшартпен рәсімделеді</p>
+        </div>
+        <div class="cond-card cond-c1">
+          <div class="cond-icon">🔧</div>
+          <h4>Өзгертулер</h4>
+          <p>Тапсырыс беруші ризасына дейін жасалады</p>
+        </div>
+        <div class="cond-card cond-c2">
+          <div class="cond-icon">📱</div>
+          <h4>Тіл</h4>
+          <p>Сайт + чат-бот 2 тілде (қазақ + орыс)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Біздің <span>жұмыстарымыз</span></div>
+      <div class="section-line"></div>
+      <div class="portfolio-grid">
+        <div class="port-card">
+          <h4>🏫 Асыл Арман Балабақшасы</h4>
+          <p>Балабақша сайты. Авторлық код, толық функционал.</p>
+          <a href="https://minaikhansaltanat-prog.github.io/asyl-arman-site/" class="port-link" target="_blank">Қарау →</a>
+        </div>
+        <div class="port-card">
+          <h4>🌐 Vizaro.net</h4>
+          <p>Корпоративтік сайт. Кәсіби деңгей.</p>
+          <a href="https://www.vizaro.net" class="port-link" target="_blank">Қарау →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Неге <span>бізге сенесіз</span>?</div>
+      <div class="section-line"></div>
+
+      <div style="background:linear-gradient(135deg,#1A1A2E,#0F3460);border-radius:20px;padding:28px 24px;margin-bottom:28px;color:#fff;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--coral));display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;">👩‍💼</div>
+        <div style="flex:1;min-width:220px;">
+          <div style="color:var(--sun);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px">Жоба жетекшісі</div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;margin-bottom:8px">Салтанат Минайхан</div>
+          <div style="color:rgba(255,255,255,0.75);font-size:13px;line-height:1.7">
+            Белгілі кәсіпкер, бизнес ментор. <strong style="color:#fff">Не керегін білетін маман.</strong><br>
+            🏨 12 капсульды хостел ашқан тәжірибелі кәсіпкер<br>
+            🧑‍🤝‍🧑 10 000+ адамға бизнес кеңес берген<br>
+            💆 Денсаулық саласы: массаж кабинеттері мен БАД саудасы<br>
+            🤖 ИИ технологияларын бизнеске енгізу бойынша тәжірибелі маман<br>
+            📅 Бизнесте 10 жыл · Команда болып жұмыс жасаймыз
+          </div>
+        </div>
+      </div>
+
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon ic-sun">🏆</div>
+          <div><h4>10 жыл бизнес тәжірибе</h4><p>@subhankul_minayhan — ИИ, маркетинг, веб — бәрін жетік меңгерген команда.</p></div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sky">🤖</div>
+          <div><h4>ИИ кәсіпқойлар</h4><p>Жаңа технологияларды бірінші болып меңгеріп, нарықта ең тиімді шешімдер ұсынамыз.</p></div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-leaf">📜</div>
+          <div><h4>Барлығы келісімшартпен</h4><p>Міндеттемелер, мерзім, сапа — барлығы қағазда бекітіледі. Жауапкершілік жоғары.</p></div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-coral">🎯</div>
+          <div><h4>Нарықты терең білеміз</h4><p>Балабақша иелерінің мәселелерін, ата-аналардың іздегенін, бәсекелестер ортасын жетік білеміз.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div style="display:inline-block;background:rgba(255,107,107,0.2);border:1px solid rgba(255,107,107,0.5);color:#FF6B6B;padding:6px 20px;border-radius:50px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px">🔥 Алғашқы 5 тапсырысқа арнайы баға!</div>
+    <h2>Бірінші болып <span>қатарға қосылыңыз!</span></h2>
+    <p style="max-width:580px;margin:0 auto 16px;">Алғашқы 5 клиенттің қатарына кіріп, арнайы бағадан пайдаланыңыз. Сауатты шешім жасап, ИИ арқылы барлық ресурстарыңызды үнемдеп, табысыңызды тиімді арттырыңыз. 1 апта — және сіздің балабақшаңыз онлайнда.</p>
+
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:20px 24px;max-width:480px;margin:0 auto 28px;text-align:left;">
+      <div style="color:var(--sun);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Жоба жетекшісі</div>
+      <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:4px">Салтанат Минайхан</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6">Кәсіпкер · Ментор · 12 хостел · 10 000+ кеңес<br>ИИ маркетинг саласының маманы · Бизнесте 10 жыл</div>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="https://wa.me/77086279544?text=Сәлем! Балабақша сайты туралы коммерциялық ұсынысты көрдім. Сөйлесуге болады ма?" class="cta-btn cta-primary">📱 WhatsApp-та жазу</a>
+      <a href="https://instagram.com/subhankul_minayhan" class="cta-btn cta-secondary">📸 @subhankul_minayhan</a>
+    </div>
+    <p style="margin-top:24px; font-size:13px; color:rgba(255,255,255,0.4)">Бизнесте 10 жыл · ИИ саласының кәсіпқойлары · Барлығы келісімшартпен</p>
+  </div>
+
+</div>
+<!-- END KAZAKH -->
+
+<div class="lang-divider"></div>
+
+<!-- ===================== RUSSIAN VERSION ===================== -->
+<div id="lang-ru" class="lang-section">
+
+  <div class="hero">
+    <div class="hero-badge">Коммерческое Предложение · 2026</div>
+    <h1>Для частных <span>детских садов</span> — сайт мирового уровня</h1>
+    <p class="hero-sub">Без ежемесячной оплаты. Один раз инвестировал — годами получаешь результат. Сайт, которому доверяют родители.</p>
+    <div class="hero-contact">
+      <a href="https://wa.me/77086279544" class="hero-contact btn-wa">📱 +7 708 627 9544</a>
+      <a href="https://instagram.com/subhankul_minayhan" class="hero-contact btn-ig">📸 @subhankul_minayhan</a>
+    </div>
+  </div>
+
+  <!-- PROBLEMS -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Без сайта детский сад <span>теряет клиентов</span></div>
+      <div class="section-line"></div>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon ic-coral">😟</div>
+          <div>
+            <h4>Недоверие родителей</h4>
+            <p>Родители гуглят сад перед звонком. Нет сайта — значит «несерьёзно» или «что-то скрывают».</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sun">📞</div>
+          <div>
+            <h4>Телефон не умолкает</h4>
+            <p>«Есть ли места?», «Сколько стоит?», «До скольки работаете?» — сайт отвечает 24/7 вместо вас.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sky">📉</div>
+          <div>
+            <h4>Проигрываете конкурентам</h4>
+            <p>Сад с сайтом — профессионал. Без сайта — аутсайдер. Родители выбирают очевидно.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-leaf">📝</div>
+          <div>
+            <h4>Ручной сбор заявок</h4>
+            <p>Без онлайн-формы вы держите листок с именами. Автоматическая система экономит ваше время.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-coral">🌐</div>
+          <div>
+            <h4>Бюджет на рекламу уходит впустую</h4>
+            <p>Реклама в Instagram без сайта — слив бюджета. Сайт умножает эффект рекламы в 3 раза.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sun">⭐</div>
+          <div>
+            <h4>Негде показать отзывы</h4>
+            <p>Хорошие отзывы есть — но некуда собрать. Сайт презентует их профессионально.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sky">📋</div>
+          <div>
+            <h4>Документы через WhatsApp</h4>
+            <p>Лицензия, программа, устав — всё шлёте в мессенджере. Сайт хранит это в удобном PDF.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-leaf">🗺️</div>
+          <div>
+            <h4>Сложно найти адрес</h4>
+            <p>«Второй поворот налево» — вчерашний день. Интеграция с Google Maps решает проблему.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE SECTIONS -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Что будет <span>на сайте</span>?</div>
+      <div class="section-line"></div>
+      <div class="features-list">
+        <div class="feature-item"><span class="dot"></span>Онлайн-форма заявки (запись в сад)</div>
+        <div class="feature-item"><span class="dot"></span>Google-карта + адрес, маршрут</div>
+        <div class="feature-item"><span class="dot"></span>Раздел отзывов (скриншот, текст, звёзды)</div>
+        <div class="feature-item"><span class="dot"></span>Официальные документы (лицензия, устав)</div>
+        <div class="feature-item"><span class="dot"></span>Страница педагогов и специалистов</div>
+        <div class="feature-item"><span class="dot"></span>Жизнь сада — фото и видео галерея</div>
+        <div class="feature-item"><span class="dot"></span>Ценности и философия сада</div>
+        <div class="feature-item"><span class="dot"></span>Группы и программы обучения</div>
+        <div class="feature-item"><span class="dot"></span>Страница контактов + кнопка WhatsApp</div>
+        <div class="feature-item"><span class="dot"></span>Адаптация под мобильный телефон</div>
+        <div class="feature-item"><span class="dot"></span>SEO-оптимизация (выше в Google)</div>
+        <div class="feature-item"><span class="dot"></span>Высокая скорость загрузки (PageSpeed 90+)</div>
+      </div>
+
+      <div class="info-box" style="margin-top:28px">
+        💡 <strong>Маркетинговая ценность:</strong> Сайт — ваш лучший менеджер по продажам. Он никогда не устаёт, не болеет, не забывает ответить. Каждый тенге рекламного бюджета работает в 3 раза эффективнее.
+      </div>
+    </div>
+  </div>
+
+  <!-- BEST SITES -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Лучшие сайты <span>детских садов мира</span></div>
+      <div class="section-line"></div>
+      <p style="margin-bottom:24px; color:var(--muted); font-size:14px">Мы гарантируем сайт именно такого уровня. Посмотрите примеры и закажите такой же для своего сада.</p>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-flag">🇦🇺</div>
+          <h4>International Grammar School Sydney</h4>
+          <p>Профессиональный дизайн, видеофон, sticky-меню, онлайн-запись на тур по школе.</p>
+          <a href="https://www.igssyd.nsw.edu.au/" class="site-link" target="_blank">igssyd.nsw.edu.au ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇺🇸</div>
+          <h4>NY Kids Club</h4>
+          <p>Яркий дизайн, карточки программ, поиск ближайшего локации — всё интуитивно понятно.</p>
+          <a href="https://nykidsclub.com/" class="site-link" target="_blank">nykidsclub.com ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇦🇺</div>
+          <h4>Mentone Grammar</h4>
+          <p>Видео на фоне, masonry-галерея, карта кампусов. Полный профессиональный пакет.</p>
+          <a href="https://www.mentonegrammar.net/" class="site-link" target="_blank">mentonegrammar.net ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇬🇧</div>
+          <h4>Monkton School</h4>
+          <p>GSAP-анимация, переходы между континентами, агрегатор соцсетей в реальном времени.</p>
+          <a href="https://www.monkton.org.uk/" class="site-link" target="_blank">monkton.org.uk ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇺🇸</div>
+          <h4>Stepping Stone School</h4>
+          <p>Программа обучения, шаги записи, информация о кампусе — всё в одном месте.</p>
+          <a href="https://www.steppingstoneschool.com/" class="site-link" target="_blank">steppingstoneschool.com ↗</a>
+        </div>
+        <div class="site-card">
+          <div class="site-flag">🇺🇸</div>
+          <h4>Little City Montessori</h4>
+          <p>Современный минималистичный дизайн, типографика высокого класса, безупречный UX.</p>
+          <a href="https://www.littlecitymontessori.com/" class="site-link" target="_blank">littlecitymontessori.com ↗</a>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:28px; background:rgba(45,198,83,0.06); border-color:var(--leaf)">
+        ✅ <strong>Наше обещание:</strong> Сделаем сайт уровня этих примеров — или лучше. Ваш стиль, цвета, особенности — всё будет учтено. Это не шаблон — это <strong>авторский код специально для вашего сада</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- MARKET PRICE -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Рыночные цены <span>vs наши цены</span></div>
+      <div class="section-line"></div>
+      <div class="market-box">
+        <h4>📊 Цены веб-студий Казахстана:</h4>
+        <div class="price-row"><span class="price-label">Веб-студия среднего уровня (Алматы/Астана)</span><span class="price-val price-market">350 000 – 800 000 ₸</span></div>
+        <div class="price-row"><span class="price-label">Фрилансер (на шаблоне)</span><span class="price-val price-market">120 000 – 250 000 ₸ + ежемесячно</span></div>
+        <div class="price-row"><span class="price-label">Wix / Tilda (ежемесячная подписка)</span><span class="price-val price-market">15 000 – 40 000 ₸/мес</span></div>
+        <div class="price-row"><span class="price-label" style="font-weight:700;color:var(--dark)">🎯 Наш 1-й пакет (сайт + чат-бот)</span><span class="price-val price-ours">150 000 ₸ — один раз!</span></div>
+      </div>
+      <div class="info-box">
+        💬 Если платить <strong>Wix 20 000 ₸/мес</strong> — за 1 год 240 000 ₸. У нас <strong>один раз 150 000 ₸</strong>, затем только хостинг (~15 000 ₸/год). <strong>Экономия: 75 000+ ₸ в год</strong>, за 3 года — более 300 000 ₸.
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Выберите: <span>3 пакета</span></div>
+      <div class="section-line"></div>
+      <div class="packages-grid">
+
+        <!-- Package 1 -->
+        <div class="package-card pkg1">
+          <div class="package-header">
+            <div class="pkg-badge">Пакет 1</div>
+            <h3>Профессиональная основа</h3>
+            <div class="pkg-price">150 000 <small>₸</small></div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:6px">Единоразово · Без ежемесячных платежей</div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-item"><span class="pkg-check">✓</span>Авторский сайт (полный код, не шаблон)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Онлайн-форма записи в сад</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Интеграция Google-карты</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Отзывы, фото и видео галерея</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Страницы педагогов, документов, групп</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>SEO + адаптация под мобильный</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span><strong>WhatsApp чат-бот</strong> — автоответ, 2 языка</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Домен + хостинг (~15 000 ₸/год, клиент берёт)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>50% предоплата · 50% при сдаче</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Срок: <strong>1 неделя</strong></div>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="package-card pkg2 featured">
+          <div class="best-badge">🔥 ХИТ</div>
+          <div class="package-header">
+            <div class="pkg-badge">Пакет 2</div>
+            <h3>Авторитетный Бренд</h3>
+            <div class="pkg-price">200 000 <small>₸</small></div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:6px">Пакет 1 + репутация в Google</div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-item"><span class="pkg-check">✓</span>Всё из 1-го пакета</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Регистрация <strong>в 2 картах Google Maps</strong></div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Написание <strong>50 качественных отзывов</strong></div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Отправка клиентам + размещение</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Высокий рейтинг в Google (4.8+ звёзд)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Первое место в локальном поиске (Local SEO)</div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="package-card pkg3">
+          <div class="package-header">
+            <div class="pkg-badge">Пакет 3</div>
+            <h3>ИИ Маркетинг Система</h3>
+            <div class="pkg-price" style="font-size:22px;line-height:1.3">Пакет 2 + ИИ система</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:6px">Цена обсуждается индивидуально</div>
+          </div>
+          <div class="package-body">
+            <div class="pkg-item"><span class="pkg-check">✓</span>Всё из 2-го пакета</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span><strong>ИИ-аватар</strong> — живая копия владельца сада</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Автоматическая система контента (видео, посты, stories)</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>ИИ-баннеры, карусели, рекламные посты</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Задаёте задачу голосом/текстом — ИИ снимает видео</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Всего <strong>$20/месяц</strong> — вместо найма мобилографа</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Или <strong>70 000 ₸/мес</strong> — мы ведём весь контент за вас</div>
+            <div class="pkg-item"><span class="pkg-check">✓</span>Экономия: <strong>400 000+ ₸/мес</strong> (мобилограф + SMM + копирайтер)</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="info-box" style="margin-top:32px; background:rgba(45,198,83,0.06); border-color:var(--leaf)">
+        🤖 <strong>Зачем ИИ-аватар?</strong><br><br>
+        📹 <strong>Если вы не можете или стесняетесь говорить на камеру</strong> — ваш аватар говорит вместо вас. Ваше лицо, ваш образ — но без стресса от съёмок.<br><br>
+        🎓 <strong>Не знаете как красиво сказать?</strong> Напишите сценарий — аватар озвучит профессионально, как диктор. Повышает ваш авторитет в глазах клиентов.<br><br>
+        🏢 <strong>Не нужна студия</strong> — экономите сотни тысяч тенге. Не нужно ехать, позировать, уставать от съёмочного процесса.<br><br>
+        ⏱️ <strong>15 минут — 20 видео готово.</strong> Мобилограф монтирует неделями и не присылает вовремя. ИИ-аватар выдаёт нужный текст, сценарий, качество — мгновенно.<br><br>
+        💰 Мобилограф — 200 000 ₸/мес. SMM-специалист — 200 000 ₸/мес. Копирайтер — 100 000 ₸/мес. Итого <strong>6 000 000 ₸ в год</strong>.<br><br>
+        🚀 <strong>Не упустите этот момент.</strong> ИИ только входит на рынок — кто первым внедряет, тот первым занимает нишу. Меньше затрат, больше результата. Это решение принимается сегодня.
+      </div>
+    </div>
+  </div>
+
+  <!-- CONDITIONS -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Условия <span>сотрудничества</span></div>
+      <div class="section-line"></div>
+      <div class="conditions-grid">
+        <div class="cond-card cond-c1">
+          <div class="cond-icon">⚡</div>
+          <h4>Срок</h4>
+          <p>1 неделя — сайт + чат-бот готов</p>
+        </div>
+        <div class="cond-card cond-c2">
+          <div class="cond-icon">💳</div>
+          <h4>Оплата</h4>
+          <p>50% предоплата · 50% при сдаче</p>
+        </div>
+        <div class="cond-card cond-c3">
+          <div class="cond-icon">🌐</div>
+          <h4>Домен/Хостинг</h4>
+          <p>Клиент берёт сам (~15 000 ₸/год) или мы поможем</p>
+        </div>
+        <div class="cond-card cond-c4">
+          <div class="cond-icon">📄</div>
+          <h4>Договор</h4>
+          <p>Всё оформляется официальным договором</p>
+        </div>
+        <div class="cond-card cond-c1">
+          <div class="cond-icon">🔧</div>
+          <h4>Правки</h4>
+          <p>До полного удовлетворения заказчика</p>
+        </div>
+        <div class="cond-card cond-c2">
+          <div class="cond-icon">📱</div>
+          <h4>Языки</h4>
+          <p>Сайт + чат-бот на 2 языках (казахский + русский)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div class="section">
+    <div class="container">
+      <div class="section-title">Наши <span>работы</span></div>
+      <div class="section-line"></div>
+      <div class="portfolio-grid">
+        <div class="port-card">
+          <h4>🏫 Детский сад «Асыл Арман»</h4>
+          <p>Сайт детского сада. Авторский код, полный функционал.</p>
+          <a href="https://minaikhansaltanat-prog.github.io/asyl-arman-site/" class="port-link" target="_blank">Смотреть →</a>
+        </div>
+        <div class="port-card">
+          <h4>🌐 Vizaro.net</h4>
+          <p>Корпоративный сайт. Профессиональный уровень.</p>
+          <a href="https://www.vizaro.net" class="port-link" target="_blank">Смотреть →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-title">Почему <span>доверяют нам</span>?</div>
+      <div class="section-line"></div>
+
+      <div style="background:linear-gradient(135deg,#1A1A2E,#0F3460);border-radius:20px;padding:28px 24px;margin-bottom:28px;color:#fff;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--coral));display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;">👩‍💼</div>
+        <div style="flex:1;min-width:220px;">
+          <div style="color:var(--sun);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px">Руководитель проекта</div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;margin-bottom:8px">Салтанат Минайхан</div>
+          <div style="color:rgba(255,255,255,0.75);font-size:13px;line-height:1.7">
+            Известный предприниматель, бизнес-ментор. <strong style="color:#fff">Специалист, который знает что нужно бизнесу.</strong><br>
+            🏨 Открыла 12 капсульных хостелов<br>
+            🧑‍🤝‍🧑 Дала консультации более 10 000 человек<br>
+            💆 Сфера здоровья: массажные кабинеты и продажа БАДов<br>
+            🤖 Эксперт по внедрению ИИ-технологий в бизнес<br>
+            📅 10 лет в бизнесе · Работает командой
+          </div>
+        </div>
+      </div>
+
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon ic-sun">🏆</div>
+          <div><h4>10 лет в бизнесе</h4><p>@subhankul_minayhan — ИИ, маркетинг, веб — команда с глубокой экспертизой.</p></div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-sky">🤖</div>
+          <div><h4>Профи в ИИ</h4><p>Первыми осваиваем новые технологии — и предлагаем клиентам самые эффективные решения.</p></div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-leaf">📜</div>
+          <div><h4>Всё по договору</h4><p>Обязательства, сроки, качество — всё фиксируется на бумаге. Высокая ответственность.</p></div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon ic-coral">🎯</div>
+          <div><h4>Знаем рынок</h4><p>Понимаем боли владельцев садов, что ищут родители, как выиграть у конкурентов.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div style="display:inline-block;background:rgba(255,107,107,0.2);border:1px solid rgba(255,107,107,0.5);color:#FF6B6B;padding:6px 20px;border-radius:50px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px">🔥 Специальная цена для первых 5 клиентов!</div>
+    <h2>Станьте первым в <span>очереди выгодных!</span></h2>
+    <p style="max-width:580px;margin:0 auto 16px;">Войдите в число первых 5 клиентов и воспользуйтесь специальной ценой. Примите грамотное решение — экономьте все ресурсы с помощью ИИ и эффективно увеличивайте доход. 1 неделя — и ваш сад работает онлайн.</p>
+
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:20px 24px;max-width:480px;margin:0 auto 28px;text-align:left;">
+      <div style="color:var(--sun);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Руководитель проекта</div>
+      <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:4px">Салтанат Минайхан</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6">Предприниматель · Ментор · 12 хостелов · 10 000+ консультаций<br>Эксперт по ИИ-маркетингу · 10 лет в бизнесе</div>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="https://wa.me/77086279544?text=Здравствуйте! Видел коммерческое предложение по сайту для детского сада. Можно поговорить?" class="cta-btn cta-primary">📱 Написать в WhatsApp</a>
+      <a href="https://instagram.com/subhankul_minayhan" class="cta-btn cta-secondary">📸 @subhankul_minayhan</a>
+    </div>
+    <p style="margin-top:24px; font-size:13px; color:rgba(255,255,255,0.4)">10 лет в бизнесе · Профессионалы в ИИ · Всё по договору</p>
+  </div>
+
+</div>
+<!-- END RUSSIAN -->
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
